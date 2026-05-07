@@ -29,7 +29,7 @@
         /* Log Entry Styling */
         .log-entry { background: var(--white); padding: 30px; margin-bottom: 25px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
         .meta { font-size: 0.85em; color: #64748b; margin-bottom: 15px; display: flex; justify-content: space-between; font-weight: 600; }
-        .reflection-text { background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent); font-style: italic; }
+        .reflection-text { background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent); font-style: italic; white-space: pre-wrap; }
         
         .month-header { font-size: 1.5rem; color: var(--primary); margin: 60px 0 20px 0; display: flex; align-items: center; border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; }
         html { scroll-behavior: smooth; }
@@ -76,32 +76,27 @@
         <h2 class="month-header">May 2026</h2>
         <div id="may-entries">
             <article class="log-entry">
-            <div class="meta"><span>
-                <article class="log-entry">
-            <div class="meta"><span>4 May 2026</span><span>Year: 9 | e1</span></div>
-            <h3>Focus: Cricket - Close Catching </h3>
-            <div class="reflection-text">"What? - The lesson had an in depth plan and the lesson followed the plan well. However as the class was very mixed ability, the catching task was far too easy for some pupils and too difficult for others. This lead to pupils becoming disruptive. Testing my behaviour management strategies. 
+                <div class="meta"><span>4 May 2026</span><span>Year: 9 | e1</span></div>
+                <h3>Focus: Cricket - Close Catching</h3>
+                <div class="reflection-text">What? - The lesson had an in depth plan and the lesson followed the plan well. However as the class was very mixed ability, the catching task was far too easy for some pupils and too difficult for others. This lead to pupils becoming disruptive. Testing my behaviour management strategies. 
 
 So what? - This lead to low level chatter and constant disruption from a few pupils making everything take twice as long as I had to keep reminding them of expectations. 
 
 Now what? - This lesson has made me aware that I need to focus on the pitch of the lesson and due to the classes being mixed ability, have a clear and planned way of how to scaffold or stretch and challenge every task completed. Also this had made it clear to me that I need to become more firm with the behaviour policy to show pupils that my expectations in the classroom are not flexible. 
 
-Short Term target - Send a pupil to reflection before the end of the half term. Once I have done this once I will feel more confident doing it and following the behaviour policy to resolution."</div>
-        </article>
-        </article>
-            </div>
+Short Term target - Send a pupil to reflection before the end of the half term. Once I have done this once I will feel more confident doing it and following the behaviour policy to resolution.</div>
+            </article>
+        </div>
     </section>
 
     <section id="june">
         <h2 class="month-header">June 2026</h2>
-        <div id="june-entries">
-            </div>
+        <div id="june-entries"></div>
     </section>
 
     <section id="july">
         <h2 class="month-header">July 2026</h2>
-        <div id="july-entries">
-            </div>
+        <div id="july-entries"></div>
     </section>
 </div>
 
@@ -122,17 +117,17 @@ Short Term target - Send a pupil to reflection before the end of the half term. 
         targetMonthLabel.innerText = monthName;
 
         const html = `
-        <article class="log-entry">
-            <div class="meta"><span>${displayDate}</span><span>Year: ${yearInp.value} | ${panelInp.value}</span></div>
-            <h3>Focus: ${focusInp.value}</h3>
-            <div class="reflection-text">"${reflectInp.value}"</div>
-        </article>`;
+<article class="log-entry">
+    <div class="meta"><span>${displayDate}</span><span>Year: ${yearInp.value} | ${panelInp.value}</span></div>
+    <h3>Focus: ${focusInp.value}</h3>
+    <div class="reflection-text">${reflectInp.value}</div>
+</article>`;
         
         codeOut.value = html.trim();
     }
 
     [dateInp, focusInp, yearInp, panelInp, reflectInp].forEach(el => el.addEventListener('input', updateCode));
-    updateCode(); // Run once on load
+    updateCode();
 </script>
 
 </body>
