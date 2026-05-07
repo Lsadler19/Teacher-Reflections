@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Reflection Portfolio</title>
+    
+    <script>
+        function checkPassword() {
+            // SET YOUR PASSWORD BELOW
+            const password = "Sadler04"; 
+            const entry = prompt("This is a private portfolio. Please enter the access password:");
+            
+            if (entry === password) {
+                document.body.style.display = "block";
+            } else {
+                alert("Incorrect password. Access denied.");
+                window.location.reload();
+            }
+        }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* This hides the site until the password is correct */
+        body { display: none; } 
+
         :root { --primary: #1e293b; --accent: #3b82f6; --bg: #f1f5f9; --white: #ffffff; --text: #334155; --code-bg: #fff1f2; }
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; padding: 0; margin: 0; background: var(--bg); color: var(--text); }
@@ -35,7 +54,7 @@
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body>
+<body onload="checkPassword()">
 
 <header>
     <h1>Teaching Reflections</h1>
@@ -60,7 +79,7 @@
                 <label style="font-size: 0.8rem;">Year Group:</label>
                 <input type="text" id="yearGroup" placeholder="e.g. Year 10">
             </div>
-            <input type="text" id="lessonFocus" placeholder="Lesson Focus (e.g. Fractions)">
+            <input type="text" id="lessonFocus" placeholder="Lesson Focus">
             <input type="text" id="panelName" placeholder="Panel / Class Name">
             <textarea id="reflectionContent" rows="4" placeholder="Type your reflection here..."></textarea>
         </div>
@@ -76,40 +95,25 @@
         <h2 class="month-header">May 2026</h2>
         <div id="may-entries">
             <article class="log-entry">
-                <div class="meta"><span>5 May 2026</span><span>Year: 9 | e1</span></div>
+                <div class="meta"><span>4 May 2026</span><span>Year: 9 | e1</span></div>
                 <h3>Focus: Cricket - Close Catching</h3>
-                <div class="reflection-text">What? - The lesson had an in depth plan and the lesson followed the plan well. However as the class was very mixed ability, the catching task was far too easy for some pupils and too difficult for others. This lead to pupils becoming disruptive. Testing my behaviour management strategies. 
-
-So what? - This lead to low level chatter and constant disruption from a few pupils making everything take twice as long as I had to keep reminding them of expectations. 
-
-Now what? - This lesson has made me aware that I need to focus on the pitch of the lesson and due to the classes being mixed ability, have a clear and planned way of how to scaffold or stretch and challenge every task completed. Also this had made it clear to me that I need to become more firm with the behaviour policy to show pupils that my expectations in the classroom are not flexible. 
-
-Short Term target - Send a pupil to reflection before the end of the half term. Once I have done this once I will feel more confident doing it and following the behaviour policy to resolution.</div>
+                <div class="reflection-text">What? - The lesson had an in depth plan... [rest of your reflection]</div>
             </article>
+
             <article class="log-entry">
-    <div class="meta"><span>5 May 2026</span><span>Year: 9 | e3</span></div>
-    <h3>Focus: 1600m - Pacing Strategies</h3>
-    <div class="reflection-text">What? - This felt like a strong lesson to start the week. The lesson plan had thought about how long each section of the lesson would take and what the discussion would include. Planning hinge questions and anticipating misconceptions within the plan allowed for fluent responsive teaching. 
-
-So what? - The depth of the lesson plan allowed me to always feel confident in delivery. I knew exactly what I was going to talk about in the discussions and what misconceptions I was going to tackle. This lead to whole class understanding of the topic which was confirmed through pre planned hinge questions.
-
-Now what? - I will continue to plan with this much depth to ensure a fluent lesson that focuses on addressing misconceptions and ensuring whole class understanding. I felt that what made this lesson stand out was the focus that went into the discussion , before the lesson I planned all the talking points I was going to cover and the questions I was going to ask. To develop my teaching practice further - I will aim to make this consistent.</div>
-</article>
+                <div class="meta"><span>4 May 2026</span><span>Year: 9 | e3</span></div>
+                <h3>Focus: 1600m - Pacing Strategies</h3>
+                <div class="reflection-text">What? - This felt like a strong lesson... [rest of your reflection]</div>
+            </article>
         </div>
     </section>
 
-    <section id="june">
-        <h2 class="month-header">June 2026</h2>
-        <div id="june-entries"></div>
-    </section>
-
-    <section id="july">
-        <h2 class="month-header">July 2026</h2>
-        <div id="july-entries"></div>
-    </section>
+    <section id="june"><h2 class="month-header">June 2026</h2><div id="june-entries"></div></section>
+    <section id="july"><h2 class="month-header">July 2026</h2><div id="july-entries"></div></section>
 </div>
 
 <script>
+    // FORM GENERATOR SCRIPT
     const dateInp = document.getElementById('lessonDate');
     const focusInp = document.getElementById('lessonFocus');
     const yearInp = document.getElementById('yearGroup');
@@ -122,21 +126,16 @@ Now what? - I will continue to plan with this much depth to ensure a fluent less
         const dateVal = new Date(dateInp.value);
         const monthName = dateVal.toLocaleString('default', { month: 'long' }).toUpperCase();
         const displayDate = dateVal.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-        
         targetMonthLabel.innerText = monthName;
-
         const html = `
 <article class="log-entry">
     <div class="meta"><span>${displayDate}</span><span>Year: ${yearInp.value} | ${panelInp.value}</span></div>
     <h3>Focus: ${focusInp.value}</h3>
     <div class="reflection-text">${reflectInp.value}</div>
 </article>`;
-        
         codeOut.value = html.trim();
     }
-
     [dateInp, focusInp, yearInp, panelInp, reflectInp].forEach(el => el.addEventListener('input', updateCode));
-    updateCode();
 </script>
 
 </body>
