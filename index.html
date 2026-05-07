@@ -3,79 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teaching Evidence Log</title>
+    <title>Teacher Reflection Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --bg: #f8f9fa;
+            --primary: #1e293b; /* Dark Slate */
+            --accent: #3b82f6;  /* Professional Blue */
+            --bg: #f1f5f9;      /* Soft Light Gray */
             --white: #ffffff;
+            --text: #334155;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 0; margin: 0; background: var(--bg); color: #333; }
-        
-        header { background: var(--primary); color: white; padding: 2rem 1rem; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        
-        nav { background: var(--white); padding: 1rem; text-align: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 100; }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--primary); font-weight: bold; text-transform: uppercase; font-size: 0.9em; }
-        nav a:hover { color: var(--secondary); }
 
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 80vh; }
-        
-        .month-section { margin-bottom: 60px; scroll-margin-top: 80px; }
-        .month-title { border-bottom: 3px solid var(--secondary); display: inline-block; padding-bottom: 5px; color: var(--primary); margin-bottom: 25px; }
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            padding: 0; 
+            margin: 0; 
+            background: var(--bg); 
+            color: var(--text); 
+        }
 
-        .log-entry { background: var(--white); padding: 25px; margin-bottom: 20px; border-radius: 12px; border-left: 8px solid var(--secondary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; }
-        .log-entry:hover { transform: translateY(-5px); }
+        header { 
+            background: var(--primary); 
+            color: white; 
+            padding: 4rem 1rem; 
+            text-align: center; 
+        }
+
+        header h1 { margin: 0; font-weight: 600; letter-spacing: -1px; }
+        header p { opacity: 0.8; font-weight: 300; margin-top: 10px; }
+
+        nav { 
+            background: var(--white); 
+            padding: 1rem; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            z-index: 100; 
+        }
+
+        nav a { 
+            margin: 0 20px; 
+            text-decoration: none; 
+            color: var(--text); 
+            font-weight: 600; 
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        .container { 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+
+        .month-header { 
+            font-size: 1.5rem; 
+            color: var(--primary); 
+            margin: 50px 0 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .month-header::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: #cbd5e1;
+            margin-left: 20px;
+        }
+
+        .log-entry { 
+            background: var(--white); 
+            padding: 30px; 
+            margin-bottom: 25px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .meta { 
+            font-size: 0.85em; 
+            color: #64748b; 
+            margin-bottom: 15px; 
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .log-entry h3 { margin: 0 0 15px 0; color: var(--primary); }
         
-        .meta { color: #7f8c8d; font-size: 0.85em; margin-bottom: 10px; display: flex; justify-content: space-between; }
-        .evidence-badge { background: #e8f4fd; color: var(--secondary); padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 15px; border: 1px solid var(--secondary); }
-        
-        .placeholder-text { color: #bdc3c7; font-style: italic; text-align: center; padding: 40px; border: 2px dashed #bdc3c7; border-radius: 12px; }
+        .reflection-text {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+        }
+
+        .evidence-btn { 
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .evidence-btn:hover { opacity: 0.9; }
+
+        .empty-state { 
+            text-align: center; 
+            padding: 40px; 
+            color: #94a3b8; 
+            border: 2px dashed #cbd5e1; 
+            border-radius: 16px; 
+        }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9em; }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Teaching Evidence & Reflection Log</h1>
-    <p>Professional Development Portfolio | 2026</p>
+    <h1>Teaching Reflections</h1>
+    <p>Evidence & Professional Development Log • 2026</p>
 </header>
 
 <nav>
-    <a href="#may">May</a>
-    <a href="#june">June</a>
-    <a href="#july">July</a>
+    <a href="#may">MAY</a>
+    <a href="#june">JUNE</a>
+    <a href="#july">JULY</a>
 </nav>
 
 <div class="container">
 
-    <section id="may" class="month-section">
-        <h2 class="month-title">May 2026</h2>
+    <section id="may">
+        <div class="month-header">May 2026</div>
         
         <article class="log-entry">
             <div class="meta">
-                <span>Date: May 7, 2026</span>
-                <span>Year Group: [Add Class]</span>
+                <span>May 7, 2026</span>
+                <span>Year Group: [Add Year]</span>
             </div>
             <h3>Topic: [Lesson Title]</h3>
-            <p><strong>Reflection:</strong> [Start typing your reflection here. What worked? What would you change next time?]</p>
-            <a href="#" class="evidence-badge">📎 View Evidence</a>
+            <div class="reflection-text">
+                "Replace this text with your reflection. What went well? How did the students react? What will you do differently next time?"
+            </div>
+            <a href="#" class="evidence-btn">View Evidence</a>
         </article>
         </section>
 
-    <section id="june" class="month-section">
-        <h2 class="month-title">June 2026</h2>
-        <div class="placeholder-text">No reflections logged for June yet.</div>
+    <section id="june">
+        <div class="month-header">June 2026</div>
+        <div class="empty-state">No entries logged for June yet.</div>
     </section>
 
-    <section id="july" class="month-section">
-        <h2 class="month-title">July 2026</h2>
-        <div class="placeholder-text">No reflections logged for July yet.</div>
+    <section id="july">
+        <div class="month-header">July 2026</div>
+        <div class="empty-state">No entries logged for July yet.</div>
     </section>
 
 </div>
 
-<footer style="text-align: center; padding: 20px; color: #7f8c8d; font-size: 0.8em;">
-    &copy; 2026 Teacher Reflection Portfolio
+<footer>
+    &copy; 2026 Professional Teaching Log
 </footer>
 
 </body>
