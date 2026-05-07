@@ -28,3 +28,85 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Evidence Log</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --bg: #f8f9fa;
+            --white: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 0; margin: 0; background: var(--bg); color: #333; }
+        
+        header { background: var(--primary); color: white; padding: 2rem 1rem; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        nav { background: var(--white); padding: 1rem; text-align: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 100; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--primary); font-weight: bold; text-transform: uppercase; font-size: 0.9em; }
+        nav a:hover { color: var(--secondary); }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 80vh; }
+        
+        .month-section { margin-bottom: 60px; scroll-margin-top: 80px; }
+        .month-title { border-bottom: 3px solid var(--secondary); display: inline-block; padding-bottom: 5px; color: var(--primary); margin-bottom: 25px; }
+
+        .log-entry { background: var(--white); padding: 25px; margin-bottom: 20px; border-radius: 12px; border-left: 8px solid var(--secondary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .log-entry:hover { transform: translateY(-5px); }
+        
+        .meta { color: #7f8c8d; font-size: 0.85em; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .evidence-badge { background: #e8f4fd; color: var(--secondary); padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 15px; border: 1px solid var(--secondary); }
+        
+        .placeholder-text { color: #bdc3c7; font-style: italic; text-align: center; padding: 40px; border: 2px dashed #bdc3c7; border-radius: 12px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Teaching Evidence & Reflection Log</h1>
+    <p>Professional Development Portfolio | 2026</p>
+</header>
+
+<nav>
+    <a href="#may">May</a>
+    <a href="#june">June</a>
+    <a href="#july">July</a>
+</nav>
+
+<div class="container">
+
+    <section id="may" class="month-section">
+        <h2 class="month-title">May 2026</h2>
+        
+        <article class="log-entry">
+            <div class="meta">
+                <span>Date: May 7, 2026</span>
+                <span>Year Group: [Add Class]</span>
+            </div>
+            <h3>Topic: [Lesson Title]</h3>
+            <p><strong>Reflection:</strong> [Start typing your reflection here. What worked? What would you change next time?]</p>
+            <a href="#" class="evidence-badge">📎 View Evidence</a>
+        </article>
+        </section>
+
+    <section id="june" class="month-section">
+        <h2 class="month-title">June 2026</h2>
+        <div class="placeholder-text">No reflections logged for June yet.</div>
+    </section>
+
+    <section id="july" class="month-section">
+        <h2 class="month-title">July 2026</h2>
+        <div class="placeholder-text">No reflections logged for July yet.</div>
+    </section>
+
+</div>
+
+<footer style="text-align: center; padding: 20px; color: #7f8c8d; font-size: 0.8em;">
+    &copy; 2026 Teacher Reflection Portfolio
+</footer>
+
+</body>
+</html>
