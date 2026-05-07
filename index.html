@@ -4,42 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Reflection Portfolio</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #1e293b; --accent: #3b82f6; --bg: #f1f5f9; --white: #ffffff; --text: #334155; --code-bg: #fff1f2; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; padding: 0; margin: 0; background: #f1f5f9; color: #334155; }
+        :root { --primary: #1e293b; --accent: #3b82f6; --white: #ffffff; }
         * { box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; padding: 0; margin: 0; background: var(--bg); color: var(--text); }
-        header { background: var(--primary); color: white; padding: 3rem 1rem; text-align: center; }
-        nav { background: var(--white); padding: 1rem; text-align: center; position: sticky; top: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 100; }
-        nav a { margin: 0 20px; text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9em; }
-        
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
 
-        /* Form Panel */
-        .admin-panel { background: #cbd5e1; padding: 25px; border-radius: 16px; margin-bottom: 40px; border: 2px solid var(--accent); }
-        .admin-panel h2 { margin-top: 0; font-size: 1.2rem; color: var(--primary); }
+        header { 
+            background: var(--primary); 
+            color: white; 
+            padding: 2rem 4rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            flex-wrap: wrap; 
+            gap: 20px;
+        }
+
+        .header-title { text-align: left; flex: 1; min-width: 300px; }
+        .header-title h1 { margin: 0; font-size: 2.5rem; }
+        .header-title p { margin: 5px 0 0 0; opacity: 0.8; font-weight: 300; }
+
+        .standards-box { 
+            flex: 1; 
+            font-size: 0.75rem; 
+            background: rgba(255,255,255,0.05); 
+            padding: 15px; 
+            border-radius: 12px; 
+            border-left: 3px solid var(--accent);
+            max-width: 600px;
+        }
+        .standards-box h2 { margin: 0 0 10px 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); }
+        .standards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .standard-item { font-weight: 600; line-height: 1.2; }
+        .standard-item span { font-weight: 400; opacity: 0.9; display: block; font-size: 0.7rem; }
+
+        nav { background: var(--white); padding: 1rem; text-align: center; position: sticky; top: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 100; }
+        nav a { margin: 0 20px; text-decoration: none; color: #334155; font-weight: 600; font-size: 0.9em; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .admin-panel { background: #cbd5e1; padding: 25px; border-radius: 16px; margin-bottom: 40px; border: 2px solid var(--accent); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         input, textarea { width: 100%; padding: 12px; margin: 5px 0; border-radius: 8px; border: 1px solid #94a3b8; font-family: inherit; }
         textarea { grid-column: span 2; }
-        
-        .code-output-area { margin-top: 20px; background: var(--white); padding: 15px; border-radius: 8px; }
-        #targetMonthText { font-weight: bold; color: #e11d48; text-transform: uppercase; }
-        #generatedCode { width: 100%; font-family: monospace; font-size: 0.75rem; background: var(--code-bg); border: 1px solid #fecdd3; color: #9f1239; margin-top: 10px; }
-
-        /* Log Entry Styling */
         .log-entry { background: var(--white); padding: 30px; margin-bottom: 25px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
         .meta { font-size: 0.85em; color: #64748b; margin-bottom: 15px; display: flex; justify-content: space-between; font-weight: 600; }
         .reflection-text { background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent); font-style: italic; white-space: pre-wrap; }
-        
         .month-header { font-size: 1.5rem; color: var(--primary); margin: 60px 0 20px 0; display: flex; align-items: center; border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; }
-        html { scroll-behavior: smooth; }
+        
+        @media (max-width: 768px) {
+            header { padding: 2rem; text-align: center; }
+            .header-title { text-align: center; }
+            .standards-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Teaching Reflections</h1>
-    <p>Professional Development Portfolio • 2026</p>
+    <div class="header-title">
+        <h1>Teaching Reflections</h1>
+        <p>Professional Development Portfolio • 2026</p>
+    </div>
+
+    <div class="standards-box">
+        <h2>Teachers' Standards Reference</h2>
+        <div class="standards-grid">
+            <div class="standard-item">TS1: <span>Set high expectations & challenge</span></div>
+            <div class="standard-item">TS2: <span>Promote good progress & outcomes</span></div>
+            <div class="standard-item">TS3: <span>Subject & curriculum knowledge</span></div>
+            <div class="standard-item">TS4: <span>Plan & teach well-structured lessons</span></div>
+            <div class="standard-item">TS5: <span>Adapt teaching to all strengths/needs</span></div>
+            <div class="standard-item">TS6: <span>Accurate & productive assessment</span></div>
+            <div class="standard-item">TS7: <span>Manage behaviour effectively</span></div>
+            <div class="standard-item">TS8: <span>Wider professional responsibilities</span></div>
+        </div>
+    </div>
 </header>
 
 <nav>
@@ -50,25 +90,18 @@
 
 <div class="container">
     <div class="admin-panel">
-        <h2>Create New Log Entry</h2>
+        <h2 style="margin-top:0">Create New Log Entry</h2>
         <div class="form-grid">
-            <div>
-                <label style="font-size: 0.8rem;">Lesson Date:</label>
-                <input type="date" id="lessonDate" value="2026-05-07">
-            </div>
-            <div>
-                <label style="font-size: 0.8rem;">Year Group:</label>
-                <input type="text" id="yearGroup" placeholder="e.g. Year 10">
-            </div>
-            <input type="text" id="lessonFocus" placeholder="Lesson Focus (e.g. Fractions)">
+            <input type="date" id="lessonDate" value="2026-05-07">
+            <input type="text" id="yearGroup" placeholder="Year Group">
+            <input type="text" id="lessonFocus" placeholder="Lesson Focus">
             <input type="text" id="panelName" placeholder="Panel / Class Name">
             <textarea id="reflectionContent" rows="4" placeholder="Type your reflection here..."></textarea>
         </div>
-
-        <div class="code-output-area">
-            <p style="margin: 0; font-size: 0.85rem;">1. Copy the code below.</p>
-            <p style="margin: 5px 0; font-size: 0.85rem;">2. In GitHub, paste it inside the <span id="targetMonthText">MAY</span> section.</p>
-            <textarea id="generatedCode" rows="4" readonly></textarea>
+        <div style="background: white; padding: 15px; margin-top: 15px; border-radius: 8px; border: 1px solid #94a3b8;">
+            <p style="margin: 0 0 10px 0; font-size: 0.85rem; font-weight: 600; color: #ef4444;">1. Copy this code:</p>
+            <textarea id="generatedCode" rows="3" style="font-size: 0.7rem; background: #fff1f2; margin:0;" readonly></textarea>
+            <p style="margin: 10px 0 0 0; font-size: 0.8rem; color: #64748b;">2. Paste it into the month section below in GitHub.</p>
         </div>
     </div>
 
@@ -78,35 +111,29 @@
             <article class="log-entry">
                 <div class="meta"><span>5 May 2026</span><span>Year: 9 | e1</span></div>
                 <h3>Focus: Cricket - Close Catching</h3>
-                <div class="reflection-text">What? - The lesson had an in depth plan and the lesson followed the plan well. However as the class was very mixed ability, the catching task was far too easy for some pupils and too difficult for others. This lead to pupils becoming disruptive. Testing my behaviour management strategies. 
+                <div class="reflection-text">What? - The lesson had an in depth plan and the lesson followed the plan well. However as the class was very mixed ability, the catching task was far too easy for some pupils and too difficult for others. This lead to pupils becoming disruptive. Testing my behaviour management strategies.
 
-So what? - This lead to low level chatter and constant disruption from a few pupils making everything take twice as long as I had to keep reminding them of expectations. 
+So what? - This lead to low level chatter and constant disruption from a few pupils making everything take twice as long as I had to keep reminding them of expectations.
 
-Now what? - This lesson has made me aware that I need to focus on the pitch of the lesson and due to the classes being mixed ability, have a clear and planned way of how to scaffold or stretch and challenge every task completed. Also this had made it clear to me that I need to become more firm with the behaviour policy to show pupils that my expectations in the classroom are not flexible. 
+Now what? - This lesson has made me aware that I need to focus on the pitch of the lesson and due to the classes being mixed ability, have a clear and planned way of how to scaffold or stretch and challenge every task completed. Also this had made it clear to me that I need to become more firm with the behaviour policy to show pupils that my expectations in the classroom are not flexible.
 
 Short Term target - Send a pupil to reflection before the end of the half term. Once I have done this once I will feel more confident doing it and following the behaviour policy to resolution.</div>
             </article>
+
             <article class="log-entry">
-    <div class="meta"><span>5 May 2026</span><span>Year: 9 | e3</span></div>
-    <h3>Focus: 1600m - Pacing Strategies</h3>
-    <div class="reflection-text">What? - This felt like a strong lesson to start the week. The lesson plan had thought about how long each section of the lesson would take and what the discussion would include. Planning hinge questions and anticipating misconceptions within the plan allowed for fluent responsive teaching. 
+                <div class="meta"><span>5 May 2026</span><span>Year: 9 | e3</span></div>
+                <h3>Focus: 1600m - Pacing Strategies</h3>
+                <div class="reflection-text">What? - This felt like a strong lesson to start the week. The lesson plan had thought about how long each section of the lesson would take and what the discussion would include. Planning hinge questions and anticipating misconceptions within the plan allowed for fluent responsive teaching.
 
 So what? - The depth of the lesson plan allowed me to always feel confident in delivery. I knew exactly what I was going to talk about in the discussions and what misconceptions I was going to tackle. This lead to whole class understanding of the topic which was confirmed through pre planned hinge questions.
 
 Now what? - I will continue to plan with this much depth to ensure a fluent lesson that focuses on addressing misconceptions and ensuring whole class understanding. I felt that what made this lesson stand out was the focus that went into the discussion , before the lesson I planned all the talking points I was going to cover and the questions I was going to ask. To develop my teaching practice further - I will aim to make this consistent.</div>
-</article>
+            </article>
         </div>
     </section>
 
-    <section id="june">
-        <h2 class="month-header">June 2026</h2>
-        <div id="june-entries"></div>
-    </section>
-
-    <section id="july">
-        <h2 class="month-header">July 2026</h2>
-        <div id="july-entries"></div>
-    </section>
+    <section id="june"><h2 class="month-header">June 2026</h2><div id="june-entries"></div></section>
+    <section id="july"><h2 class="month-header">July 2026</h2><div id="july-entries"></div></section>
 </div>
 
 <script>
@@ -116,28 +143,18 @@ Now what? - I will continue to plan with this much depth to ensure a fluent less
     const panelInp = document.getElementById('panelName');
     const reflectInp = document.getElementById('reflectionContent');
     const codeOut = document.getElementById('generatedCode');
-    const targetMonthLabel = document.getElementById('targetMonthText');
 
     function updateCode() {
         const dateVal = new Date(dateInp.value);
-        const monthName = dateVal.toLocaleString('default', { month: 'long' }).toUpperCase();
         const displayDate = dateVal.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-        
-        targetMonthLabel.innerText = monthName;
-
-        const html = `
-<article class="log-entry">
+        const html = `<article class="log-entry">
     <div class="meta"><span>${displayDate}</span><span>Year: ${yearInp.value} | ${panelInp.value}</span></div>
     <h3>Focus: ${focusInp.value}</h3>
     <div class="reflection-text">${reflectInp.value}</div>
 </article>`;
-        
         codeOut.value = html.trim();
     }
-
     [dateInp, focusInp, yearInp, panelInp, reflectInp].forEach(el => el.addEventListener('input', updateCode));
-    updateCode();
 </script>
-
 </body>
 </html>
